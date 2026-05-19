@@ -124,26 +124,21 @@ DRIVE_IDS = {
 }
 
 def ensure_data_files():
-    try:
-        import gdown
-    except ImportError:
-        return
-
+    import requests
     base = Path(__file__).parent
     for filename, file_id in DRIVE_IDS.items():
         dest = base / filename
         if not dest.exists() and not file_id.startswith("XXX"):
             with st.spinner(f"Descargando {filename}…"):
                 try:
-                    gdown.download(
-                        id=file_id,
-                        output=str(dest),
-                        quiet=False,
-                        fuzzy=True,
-                    )
+                    url = (f"https://drive.usercontent.google.com/download"
+                           f"?id={file_id}&export=download&confirm=t")
+                    r = requests.get(url, timeout=120)
+                    r.raise_for_status()
+                    dest.write_bytes(r.content)
                 except Exception as e:
                     st.error(f"Error descargando {filename}: {e}")
-
+                    
 ensure_data_files()
 
 
