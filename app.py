@@ -119,8 +119,8 @@ h1, h2, h3 { font-family: 'Lora', serif; }
 DRIVE_IDS = {
     "presence_day.csv":          "1awWlwxX6TH0eTb5jdn3XkUheblrdtgZN",
     "fish_metadata.csv":         "1cWZrwJjV2c7ld9d1UDMFjeopgl1nH53F",
-    "deployment_metadata.csv":   "1H5XkGJMvJtj-LI1wCTCBkEcd-HR85Gqh". 
-    "sensor_data.csv":   	 "13onKpGwDarA-WUX91hWYrlLJgh9YVi49"
+    "deployment_metadata.csv":   "1H5XkGJMvJtj-LI1wCTCBkEcd-HR85Gqh" 
+#    "sensor_data.csv":   	     "13onKpGwDarA-WUX91hWYrlLJgh9YVi49"
 }
 
 def ensure_data_files():
